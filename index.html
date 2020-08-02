@@ -1,46 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LocalStorage ToDo List</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <section class="container">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage ToDo List</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
 
-    <header class="header">
-      <p class="header__title">ToDo List with LocalStorage</p>
-      <p class="header__subtitle">by HerCase</p>
-    </header>
+  <body>
+    <section class="container">
 
-    <section class="content">
-      <div class="content__form">
-        <form  action="#" method="post">
-          <input class="content__form__input" type="text" name="list_item">
-          <button class="content__form__button" type="submit">ADD</button>
-        </form>
-      </div>
-      <div class="content__list">
-        <ol>
-          <li class="content__list__item">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quibusdam at dignissimos, esse natus necessitatibus ab fuga eum ipsa? Voluptatem ea harum iusto quo magni odio sit dolore natus illum.</p>
-            <button class="content__list__delete">X</button>
-          </li>
+      <header class="header">
+        <p class="header__title">ToDo List with LocalStorage</p>
+        <p class="header__subtitle">by HerCase</p>
+      </header>
 
-          <li class="content__list__item">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quibusdam at dignissimos, esse natus necessitatibus ab fuga eum ipsa? Voluptatem ea harum iusto quo magni odio sit dolore natus illum.</p>
-            <button class="content__list__delete">X</button>
-          </li>
+      <section class="content">
+        <div class="content__form">
+          <form action="#" method="post">
+            <input class="content__form__input" type="text" name="list_item">
+            <button class="content__form__button" type="submit">ADD</button>
+          </form>
+        </div>
+        <div class="content__list">
+          <ol>
+            <li class="content__list__item">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quibusdam at dignissimos, esse natus
+                necessitatibus ab fuga eum ipsa? Voluptatem ea harum iusto quo magni odio sit dolore natus illum.</p>
+              <button class="content__list__delete">X</button>
+            </li>
 
-          <li class="content__list__item">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quibusdam at dignissimos, esse natus necessitatibus ab fuga eum ipsa? Voluptatem ea harum iusto quo magni odio sit dolore natus illum.</p>
-            <button class="content__list__delete">X</button>
-          </li>
-        </ol>
-      </div>
+            <li class="content__list__item">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quibusdam at dignissimos, esse natus
+                necessitatibus ab fuga eum ipsa? Voluptatem ea harum iusto quo magni odio sit dolore natus illum.</p>
+              <button class="content__list__delete">X</button>
+            </li>
+
+            <li class="content__list__item">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quibusdam at dignissimos, esse natus
+                necessitatibus ab fuga eum ipsa? Voluptatem ea harum iusto quo magni odio sit dolore natus illum.</p>
+              <button class="content__list__delete">X</button>
+            </li>
+          </ol>
+        </div>
+      </section>
+
     </section>
-
-  </section>
-</body>
+  </body>
 </html>
+
+<script src="./app.js"></script>
