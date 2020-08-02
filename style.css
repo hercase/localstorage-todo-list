@@ -26,8 +26,11 @@ body {
 }
 
 .container {
-  width: 100%;
-  height: 700px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  width: 95%;
+  min-height: 90vh;
   max-width: 1200px;
   background-color: var(--color-light);
   justify-content: center;
@@ -36,29 +39,29 @@ body {
 
 .header {
   text-align: center;
-  flex: 1;
   font-size: 1.1rem;
 }
 
 .header__title {
   font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--color-dark);
+  font-weight: 900;
+  color: var(--secondary-color);
 }
 
 .header__subtitle {
+  font-variant: small-caps;
   font-size: .9rem;
   font-weight: 300;
   color: var(--terciary-color);
 }
 
 .content {
+  flex: 1;;
   margin-top: 0 2rem;
 }
 
 .content__form {
   width: 90%;
-
   box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
   margin: 2rem auto;
 }
@@ -69,7 +72,7 @@ body {
 
 .content__form__input {
   flex: 1;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   padding: 10px;
   border: 2px solid var(--primary-color);
 }
@@ -83,20 +86,22 @@ body {
   cursor: pointer;
 }
 
-.content__list,
-.content__list ol {
-  font-size: 1.2rem;
+.content__list {
   width: 90%;
+  font-size: 1.1rem;
+  list-style-position: inside;
   margin: 0 auto;
 }
 
 .content__list__item {
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
   position: relative;
+  padding-right: 30px;
 }
 
 .content__list__delete { 
   display: none;
+  cursor: pointer;
 }
 
 .content__list__item:hover .content__list__delete {
@@ -109,5 +114,5 @@ body {
   border: none;
   position: absolute;
   top: 0;
-  right: -30px;
+  right: 0;
 }
