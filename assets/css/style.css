@@ -13,24 +13,29 @@
 }
 
 *:focus {
-  outline: var(--terciary-color) auto 1px;
+  outline: none;
+}
+
+button > * {
+  pointer-events: none;
 }
 
 body {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   color: var(--color-dark);
   background-color: var(--color-dark);
   font-size: 12px;
   font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  width: 100vw;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
   width: 95%;
-  min-height: 90vh;
+  height: 95%;
   max-width: 1200px;
   background-color: var(--color-light);
   justify-content: center;
@@ -56,17 +61,19 @@ body {
 }
 
 .content {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .content__form {
   width: 90%;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
   margin: 2rem auto;
 }
 
 .content__form form {
   display: flex;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
 }
 
 .content__form__input {
@@ -88,6 +95,7 @@ body {
 
 .content__list {
   width: 90%;
+  overflow-y: auto;
   font-size: 1.1rem;
   list-style-position: inside;
   margin: 0 auto;
@@ -121,6 +129,12 @@ body {
   text-align: right;
   color: var(--secondary-color);
   cursor: pointer;
+  font-weight: 900;
+  margin-top: 1rem;
+}
+
+.error {
+  border-color: var(--secondary-color) !important;
 }
 
 

@@ -9,11 +9,11 @@ const deleteAll = document.querySelector('.delete_all');
 eventsListeners();
 
 function eventsListeners() {
-  form.addEventListener('submit', addItemToList);
-  form.addEventListener('onkeyup', addItemToList);
-  itemList.addEventListener('click', removeItemFromList);
-  document.addEventListener('DOMContentLoaded', displayItemsFromLocalStorage);
-  deleteAll.addEventListener('click', deleteAllItems)
+  form.addEventListener('submit', (e) => addItemToList(e));
+  form.addEventListener('onkeyup', (e) => addItemToList(e));
+  itemList.addEventListener('click', (e) => removeItemFromList(e));
+  document.addEventListener('DOMContentLoaded', (e) => displayItemsFromLocalStorage(e));
+  deleteAll.addEventListener('click', (e) => deleteAllItems(e))
 }
 
 // Functions
@@ -28,37 +28,60 @@ function addItemToList(e) {
   newItem.className = 'content__list__item';
 
   if (formInput.value != "") {
-    newItem.innerText = formInput.value;
-    itemList.appendChild(newItem);
-    addItemToLocalStorage(formInput.value);
+    let itemExist = false;
+    let currentItems = getItemsFromLocalStorage();
+
+    // Item already exist in LocalStorage?
+    currentItems.forEach((item) => { 
+      if (formInput.value === item) { 
+        itemExist = true; 
+      }
+    });
+
+    if (!itemExist) {
+      addItemToLocalStorage(formInput.value);
+      newItem.innerText = formInput.value;
+      itemList.appendChild(newItem);
+
+      newDeleteButton.className = 'content__list__delete';
+      newDeleteButton.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
+      newItem.appendChild(newDeleteButton);
+      
+      // Reset input.
+      formInput.value = "";
+    } else {
+      formInput.classList.add('error');
+      setTimeout(() => {
+        formInput.classList.remove('error');
+      }, 2000);
+
+    }
   }
-
-  newDeleteButton.className = 'content__list__delete';
-  newDeleteButton.innerText = 'X';
-  newItem.appendChild(newDeleteButton);
-
-  // Reset input.
-  formInput.value = "";
 }
 
 function removeItemFromList(e) {
+  e.stopPropagation();
   e.preventDefault();
 
-  // Only if DELETE is clicked.
   if (e.target.className == 'content__list__delete') {
-    let index = e.target.parentElement.id;
+
     let currentItems = getItemsFromLocalStorage();
 
+    // Alert for confirm delete.
     let confirm = window.confirm('Are you sure to delete this item from the list?');
     if (confirm == true) {
-      e.target.parentElement.remove()
 
-      // Find index of element.
-      if (index > -1) {
-        currentItems.splice(index, 1);
-      }
+      currentItems.forEach((item, index) => {
+        if (e.target.parentElement.innerText === item) {
+          currentItems.splice(index, 1);
+        }
+      });
+
+      e.target.parentElement.remove();
+
       localStorage.setItem('list-items', JSON.stringify(currentItems));
-    };
+    }
+
   }
 }
 
@@ -74,7 +97,7 @@ function getItemsFromLocalStorage() {
 
   if (itemsLocalStorage != null) {
     itemsList = JSON.parse(itemsLocalStorage);
-  };
+  }
 
   return itemsList;
 }
@@ -88,7 +111,6 @@ function displayItemsFromLocalStorage() {
     let newItem = document.createElement('li');
     let newDeleteButton = document.createElement('button');
 
-    newItem.setAttribute('id', index);
     newItem.className = 'content__list__item';
 
     newItem.innerText = item;
@@ -100,10 +122,10 @@ function displayItemsFromLocalStorage() {
   })
 }
 
-function deleteAllItems () {
+function deleteAllItems() {
   let confirm = window.confirm('Are you sure you want to delete all items?')
-  if (confirm == true){
+  if (confirm == true) {
     localStorage.clear();
     itemList.innerHTML = '';
-  };
+  }
 }
