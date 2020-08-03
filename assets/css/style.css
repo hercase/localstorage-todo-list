@@ -40,6 +40,7 @@ body {
   background-color: var(--color-light);
   justify-content: center;
   padding: 2rem;
+  transition: all .5s;
 }
 
 .header {
@@ -48,9 +49,11 @@ body {
 }
 
 .header__title {
-  font-size: 1.2rem;
-  font-weight: 900;
-  color: var(--secondary-color);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--terciary-color);
+  font-family: 'Ubuntu', sans-serif;
+  font-variant: all-petite-caps;
 }
 
 .header__subtitle {
@@ -138,10 +141,10 @@ body {
 }
 
 
-@media (max-width: 500px){
+@media (max-width: 600px){
   .container {
-    margin-top: 1rem;
-    min-height: 95vh;
+    width: 100%;
+    height: 100%;
   }
 
   .content__form {
