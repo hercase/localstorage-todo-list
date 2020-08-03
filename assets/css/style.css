@@ -140,6 +140,20 @@ body {
   border-color: var(--secondary-color) !important;
 }
 
+.projectlink {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.github {
+  opacity: .5;
+  display: inline-block;
+  vertical-align: text-top;
+  fill: var(--color-light);
+}
+
+
 
 @media (max-width: 600px){
   .container {
