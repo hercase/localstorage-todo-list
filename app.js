@@ -7,7 +7,7 @@ const itemList = document.querySelector('.content__list').children[0];
 
 eventsListeners();
 
-function eventsListeners(){
+function eventsListeners() {
   form.addEventListener('submit', addItemToList);
   form.addEventListener('onkeyup', addItemToList);
   itemList.addEventListener('click', removeItemFromList);
@@ -24,8 +24,8 @@ function addItemToList(e) {
   let newDeleteButton = document.createElement('button');
 
   newItem.className = 'content__list__item';
-  
-  if (formInput.value != ""){
+
+  if (formInput.value != "") {
     newItem.innerText = formInput.value;
     itemList.appendChild(newItem);
     addItemToLocalStorage(formInput.value);
@@ -42,19 +42,31 @@ function addItemToList(e) {
 function removeItemFromList(e) {
   e.preventDefault();
 
-  if(e.target.className == 'content__list__delete'){
+  // Only if DELETE is clicked.
+  if (e.target.className == 'content__list__delete') {
+    let index = e.target.parentElement.id;
+    let currentItems = getItemsFromLocalStorage();
+
     let confirm = window.confirm('Are you sure to delete this item from the list?');
-    if( confirm == true) { e.target.parentElement.remove() };
-  }  
+    if (confirm == true) {
+      e.target.parentElement.remove()
+
+      // Find index of element.
+      if (index > -1) {
+        currentItems.splice(index, 1);
+      }
+      localStorage.setItem('list-items', JSON.stringify(currentItems));
+    };
+  }
 }
 
-function addItemToLocalStorage(item){
+function addItemToLocalStorage(item) {
   let currentItems = getItemsFromLocalStorage();
   currentItems.push(item);
   localStorage.setItem('list-items', JSON.stringify(currentItems));
 }
 
-function getItemsFromLocalStorage(){
+function getItemsFromLocalStorage() {
   let itemsLocalStorage = localStorage.getItem("list-items");
   let itemsList = [];
 
@@ -65,15 +77,16 @@ function getItemsFromLocalStorage(){
   return itemsList;
 }
 
-function displayItemsFromLocalStorage(){
+function displayItemsFromLocalStorage() {
   let currentItems = getItemsFromLocalStorage();
-  
-  currentItems.forEach( item => {
+
+  currentItems.forEach((item, index) => {
 
     //Creating list item and delete button.
     let newItem = document.createElement('li');
     let newDeleteButton = document.createElement('button');
 
+    newItem.setAttribute('id', index);
     newItem.className = 'content__list__item';
 
     newItem.innerText = item;
