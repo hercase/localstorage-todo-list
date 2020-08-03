@@ -2,6 +2,7 @@
 const form = document.querySelector('.content__form').children[0];
 const formInput = document.querySelector('.content__form__input');
 const itemList = document.querySelector('.content__list').children[0];
+const deleteAll = document.querySelector('.delete_all');
 
 // EventListeners
 
@@ -12,6 +13,7 @@ function eventsListeners() {
   form.addEventListener('onkeyup', addItemToList);
   itemList.addEventListener('click', removeItemFromList);
   document.addEventListener('DOMContentLoaded', displayItemsFromLocalStorage);
+  deleteAll.addEventListener('click', deleteAllItems)
 }
 
 // Functions
@@ -93,7 +95,15 @@ function displayItemsFromLocalStorage() {
     itemList.appendChild(newItem);
 
     newDeleteButton.className = 'content__list__delete';
-    newDeleteButton.innerText = 'X';
+    newDeleteButton.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
     newItem.appendChild(newDeleteButton);
   })
+}
+
+function deleteAllItems () {
+  let confirm = window.confirm('Are you sure you want to delete all items?')
+  if (confirm == true){
+    localStorage.clear();
+    itemList.innerHTML = '';
+  };
 }

@@ -56,8 +56,7 @@ body {
 }
 
 .content {
-  flex: 1;;
-  margin-top: 0 2rem;
+  flex: 1;
 }
 
 .content__form {
@@ -72,6 +71,7 @@ body {
 
 .content__form__input {
   flex: 1;
+  width: 100%;
   font-size: 1.1rem;
   padding: 10px;
   border: 2px solid var(--primary-color);
@@ -82,8 +82,8 @@ body {
   background-color: var(--primary-color);
   border: none;
   font-size: 1.1rem;
-  padding: .2rem 2rem;
   cursor: pointer;
+  width: 45px;
 }
 
 .content__list {
@@ -115,4 +115,23 @@ body {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.delete_all {
+  text-align: right;
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+
+@media (max-width: 500px){
+  .container {
+    margin-top: 1rem;
+    min-height: 95vh;
+  }
+
+  .content__form {
+    width: 100%;
+  }
+
 }
