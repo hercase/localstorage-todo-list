@@ -1,0 +1,27 @@
+{
+  "name": "localstorage-todo-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hercase/localstorage-todo-list.git"
+  },
+  "keywords": [],
+  "author": "hercase",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hercase/localstorage-todo-list/issues"
+  },
+  "homepage": "https://github.com/hercase/localstorage-todo-list#readme",
+  "dependencies": {
+    "html-webpack-plugin": "^4.4.1",
+    "webpack": "^4.44.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.12"
+  }
+}
