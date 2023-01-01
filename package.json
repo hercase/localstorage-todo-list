@@ -18,10 +18,10 @@
   },
   "homepage": "https://github.com/hercase/localstorage-todo-list#readme",
   "dependencies": {
-    "html-webpack-plugin": "^4.4.1",
-    "webpack": "^4.44.1"
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.75.0"
   },
   "devDependencies": {
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^5.0.1"
   }
 }
